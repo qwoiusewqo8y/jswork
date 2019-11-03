@@ -73,33 +73,34 @@ var classesArr = [
         ['社工1801']
     ]
 ];
-
-function createOption(obj, data) {
-    for (var i in data) {
+function createOption (obj, data){
+    for (var i in data){
         var op = new Option(data[i], i);
         obj.options.add(op);
     }
-}           
+}
 
-var majorSelect = document.getElementById('majorSelect');
-collegeSelect.onchange = function() {
-    majorSelect.options.length = 0;
+var collegeSelect=document.getElementById('collegeSelect');
+createOption(collegeSelect,collegesArr);
+
+var majorSelect=document.getElementById('majorSelect');
+collegeSelect.onchange=function(){
+    majorSelect.options.length=0;
     createOption(majorSelect, majorsArr[collegeSelect.value]);
-};
+}
 
-var classeSelect = document.getElementById('classeSelect');
-majorSelect.onchange = function() {
-    collegeSelect.options.length = 0;
-    createOption(classeSelect,classesArr[collegeSelect.value][majorSelect.value]);
-};
+var classSelect=document.getElementById('classSelect');
+majorSelect.onchange=function(){
+    classSelect.options.length=0;
+    createOption(classSelect, classesArr[collegeSelect.value][majorSelect.value])
+}
 
-collegeSelect.onchange = function() {
-    majorSelect.length = 0;
+collegeSelect.onchange=function(){
+    majorSelect.options.length=0;
     createOption(majorSelect, majorsArr[collegeSelect.value]);
-    if (collegeSelect.value >= 0) {
-        majorSelect();
-    } else {
-        classeSelect.options.length = 0;
+    if (collegeSelect.value>=0){
+        majorSelect.onchange();
+    }else{
+        classSelect.options.length=0;
     }
-};
-
+}
