@@ -85,7 +85,7 @@
     padding: 0 3px;
     display: inline-block;
     background: #fff;
-    bordee: 1px solid #bbb;
+    border: 1px solid #bbb;
 }
 
 .cart-del,
@@ -128,7 +128,6 @@
     border-radius: 5px 5px 5px 5px;
     padding: 6px 12px;
 }
-
 
 .cart-bottom-btn:hover{
     background: #FF6600;
